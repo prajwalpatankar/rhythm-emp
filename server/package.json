@@ -1,0 +1,20 @@
+{
+  "name": "employee",
+  "version": "1.0.0",
+  "description": "python3 -m virutalenv env source env/bin/activate pip3 install django pip3 install psycopg2-binary pip3 install djangorestframework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prajwalpatankar/rhythm-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prajwalpatankar/rhythm-test/issues"
+  },
+  "homepage": "https://github.com/prajwalpatankar/rhythm-test#readme"
+}
