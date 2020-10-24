@@ -4,6 +4,7 @@ from .serializers import EmployeeSerializer
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpRequest
 from .models import Employee
+from rest_framework.response import Response
 
 # Create your views here.
 # def list_employee_details(request):
@@ -36,4 +37,3 @@ from .models import Employee
 class EmployeeViewSet(viewsets.ModelViewSet):
     queryset = Employee.objects.all().order_by('employee_id')
     serializer_class = EmployeeSerializer
-

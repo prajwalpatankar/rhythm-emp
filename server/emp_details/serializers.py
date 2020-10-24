@@ -15,3 +15,5 @@ class EmployeeSerializer(serializers.ModelSerializer):
                   'department',
                   'designation',
                   'location')
+
+
