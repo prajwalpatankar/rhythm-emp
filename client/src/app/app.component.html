@@ -51,13 +51,15 @@
                     <label for="department">Department</label>
                     <input required ngModel #emp_val6="ngModel" name="department" id="department" type="text"
                         class="form-control">
-                    <div class="alert alert-danger" *ngIf="emp_val6.touched && !emp_val6.valid">Department is required</div>
+                    <div class="alert alert-danger" *ngIf="emp_val6.touched && !emp_val6.valid">Department is required
+                    </div>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="deisgnation">Designation</label>
                     <input required ngModel #emp_val7="ngModel" name="designation" id="designation" type="text"
                         class="form-control">
-                    <div class="alert alert-danger" *ngIf="emp_val7.touched && !emp_val7.valid">Designation is required</div>
+                    <div class="alert alert-danger" *ngIf="emp_val7.touched && !emp_val7.valid">Designation is required
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -65,7 +67,8 @@
                     <label for="location">Location</label>
                     <input required ngModel #emp_val8="ngModel" name="location" id="location" type="text"
                         class="form-control">
-                    <div class="alert alert-danger" *ngIf="emp_val8.touched && !emp_val8.valid">Location is required</div>
+                    <div class="alert alert-danger" *ngIf="emp_val8.touched && !emp_val8.valid">Location is required
+                    </div>
                 </div>
             </div>
 
@@ -106,7 +109,9 @@
                     <td>{{ emp.designation }}</td>
                     <td>{{ emp.location }}</td>
                     <td>
-                        <button type="button" class="btn bg-transparent " data-toggle="modal" data-target="#editModalCenter" (click)="updateEmployee(emp)">
+                        <!--Edit Button-->
+                        <button type="button" class="btn bg-transparent " data-toggle="modal"
+                            data-target="#editModalCenter" (click)="getCurrDetail(emp)">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="purple"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -115,7 +120,9 @@
                                     d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                             </svg>
                         </button>
-                        <button type="button" class="btn bg-transparent " data-toggle="modal" data-target="#deleteModalCenter">
+                        <!--Delete Button-->
+                        <button type="button" class="btn bg-transparent " data-toggle="modal"
+                            data-target="#deleteModalCenter">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="red"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -124,23 +131,25 @@
                         </button>
 
                         <!-- Edit Modal -->
-                        <div class="modal fade" id="editModalCenter" tabindex="-1" role="dialog"
-                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal fade" id="editModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLongTitle">Update Employee Details</h5>
+                                        <h3 class="modal-title" id="exampleModalLongTitle">Update Employee Details</h3>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        ...
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
+
+
+                                        <form [ngClass]="tempform" name="form" (ngSubmit)="updateEmployee(tempform)" >
+                                            <label for="emp_name_new">Name</label>
+                                            <input placeholder="Name" name="emp_name_new" id="emp_name_new" type="text">
+                                            <button type="submit" class="btn btn-success">Save changes</button>
+                                        </form>
+
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -161,7 +170,8 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-                                        <button type="button" class="btn btn-success" data-dismiss="modal" (click)="deleteEmployee(emp)">Yes</button>
+                                        <button type="button" class="btn btn-success" data-dismiss="modal"
+                                            (click)="deleteEmployee(emp)">Yes</button>
                                     </div>
                                 </div>
                             </div>

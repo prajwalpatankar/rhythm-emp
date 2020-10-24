@@ -19,7 +19,6 @@ export class AppComponent {
   Employees: any = []
 
 
-
   ngOnInit(): void {
     this.refreshEmps()
   }
@@ -36,34 +35,59 @@ export class AppComponent {
   }
 
 
-  addEmployee(emp) { 
+  addEmployee(emp) {
+    console.log(emp)
     var val = { employee_id: emp.emp_id, employee_name: emp.emp_name, dob: emp.dob, date_of_joining: emp.doj, mobile: emp.mobile, email_id: emp.email, department: emp.department, designation: emp.designation, location: emp.location };
     this.api.addEmployee(val).subscribe(
-      res=>{
+      res => {
         alert("Succesfully Added");
         this.refreshEmps();
       },
-      error=> {
+      error => {
         alert("Oops! Something went wrong! Tip: Check Employee id");
-      }      
+      }
     );
   }
+  
+  // currDet:any;     bugs in edit.
 
-  updateEmployee(emp) {
+  // getCurrDetail(emp) {
+  //   this.currDet = emp;
+  //   console.log("before :");
+  //   console.log(this.currDet);
+  // }
 
-  }
+  // updateEmployee(emp) {
+  //   // var val = { employee_id: emp.emp_id, employee_name: this.newDetail, dob: emp.dob, date_of_joining: emp.doj, mobile: emp.mobile, email_id: emp.email, department: emp.department, designation: emp.designation, location: emp.location };
+  //   this.currDet.employee_name = emp.emp_name_new;
+  //   console.log(emp);
+  //   console.log(emp.value.emp_name_new);
+  //   console.log("updated:");
+  //   console.log(this.currDet);
+  //   // this.api.updateEmployee(this.currDet).subscribe(
+  //   //   res => {
+  //   //     alert("Succesfully Updated");
+  //   //     this.refreshEmps();
+  //   //   },
+  //   //   error => {
+  //   //     alert("Oops! Something went wrong! Tip: Check Employee id");
+  //   //   }
+    
+  //   // );
+
+  // }
 
 
-  deleteEmployee(emp) { 
+  deleteEmployee(emp) {
     this.api.deleteEmployee(emp.employee_id).subscribe(
-      res=>{
+      res => {
         alert("Succesfully Deleted");
         this.refreshEmps();
       }
     );
   }
 
-        
+
 
 
   // working
