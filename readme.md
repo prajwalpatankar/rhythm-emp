@@ -1,5 +1,5 @@
 ## setting up frontend
-cd client  
+ $ cd client  
 npm install  
   
 
